@@ -1,13 +1,26 @@
 'use client'
-import React from "react";
+
 import ImagesWrapper from "../../component/imagewrapper";
 import { Button, Container, Form, InputGroup } from "rsuite";
 import { Icon } from "@iconify/react";
 import logo from '@/public/logo.png'
 import { fn } from "@/utils/utilityfunctions";
 import Link from "next/link";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
-const page = () => {
+
+const Page = () => {
+    const [isReveal, setIsReveal] = useState(false)
+    const {handleSubmit,
+      watch,
+      formState: { errors },
+    } = useForm()
+  
+    const onSubmit = (data) => console.log(data)
+
+
+
   return (
     <section>
       {/* header */}
@@ -21,14 +34,14 @@ const page = () => {
       {/* form email */}
       <Container>
 
-      <Form style={{ maxWidth: "300px", margin: "0 auto" }}>
-        <Form.Group controlId={"input-1"}>
+      <Form onSubmit={handleSubmit(onSubmit)} style={{ maxWidth: "300px", margin: "0 auto" }}>
+        <Form.Group controlId={"email"}>
           <InputGroup inside>
             <InputGroup.Addon>
             <Icon icon="majesticons:mail" style={{ color: "blue" }} />
             </InputGroup.Addon>
             <Form.Control
-              name="input-1"
+              name="email"
               placeholder="Email"
               />
           </InputGroup>
@@ -36,13 +49,13 @@ const page = () => {
      
 
             {/* form username */}
-        <Form.Group controlId={"input-1"}>
+        <Form.Group controlId={"username"}>
           <InputGroup inside>
             <InputGroup.Addon>
             <Icon icon="fluent-mdl2:contact" style={{ color: "blue" }}/>
             </InputGroup.Addon>
             <Form.Control
-              name="input-1"
+              name="username"
               placeholder="Username"
               />
           </InputGroup>
@@ -50,26 +63,26 @@ const page = () => {
   
 
        {/* form password */}
-        <Form.Group controlId={"input-1"}>
+        <Form.Group controlId={"password"}>
           <InputGroup inside>
             <InputGroup.Addon>
             <Icon icon="uis:padlock" style={{ color: "blue" }} />
             </InputGroup.Addon>
             <Form.Control
-              name="input-1"
+              name="password"
               placeholder="Password"
               />
           </InputGroup>
         </Form.Group>
      
              {/* form confirm password */}
-        <Form.Group controlId={"input-1"}>
+        <Form.Group controlId={"confirmpassword"}>
           <InputGroup inside>
             <InputGroup.Addon>
             <Icon icon="uis:padlock" style={{ color: "blue" }}/>
             </InputGroup.Addon>
             <Form.Control
-              name="input-1"
+              name="confirmpassword"
               placeholder="Confirm Password"
               />
           </InputGroup>
@@ -100,4 +113,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

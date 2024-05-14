@@ -26,22 +26,22 @@ const page = () => {
         {/* form email */}
 
         <Form style={{ maxWidth: "300px", margin: "0 auto" }}>
-          <Form.Group controlId={"input-1"}>
+          <Form.Group controlId={"email"}>
             <InputGroup inside>
               <InputGroup.Addon>
                 <Icon icon="majesticons:mail" style={{ color: "blue" }} />
               </InputGroup.Addon>
-              <Form.Control name="input-1" placeholder="Email" />
+              <Form.Control name="email" placeholder="Email" />
             </InputGroup>
           </Form.Group>
 
           {/* form password */}
-          <Form.Group controlId={"input-1"}>
+          <Form.Group controlId={"password"}>
             <InputGroup inside>
               <InputGroup.Addon>
                 <Icon icon="uis:padlock" style={{ color: "blue" }} />
               </InputGroup.Addon>
-              <Form.Control name="input-1" placeholder="Password" />
+              <Form.Control name="password" placeholder="Password" />
             </InputGroup>
           </Form.Group>
 
@@ -58,7 +58,7 @@ const page = () => {
             style={{ width: "100%" }}
           >
             {" "}
-            Sign Up{" "}
+            Sign In{" "}
           </Button>
           <div className={`w-full text-xs`}>
             <p className={`my-3`}>
